@@ -9,9 +9,6 @@ data class Event(
 
         @Id @GeneratedValue(strategy = GenerationType.AUTO)
         val id: Long = -1,
-//
-//        @Column(name = "device_id")
-//        val deviceId: Long = -1,
 
         @Column(name = "date")
         val date: LocalDateTime,
@@ -20,10 +17,10 @@ data class Event(
         @Column(name = "type") val type: EventType,
 
         @Column(name = "is_read")
-        val isRead: Boolean,
+        val isRead: Boolean) {
 
-        @ManyToOne(fetch = FetchType.LAZY, optional = false)
-        @JoinColumn(name = "device_id")
-        val device: Device? = null
-        ) {
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "device_id")
+    val device: Device? = null
+
 }
