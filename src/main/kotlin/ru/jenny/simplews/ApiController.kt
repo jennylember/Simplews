@@ -4,8 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
-import ru.jenny.simplews.repository.DeviceRepository
-import ru.jenny.simplews.repository.EventRepository
 import ru.jenny.simplews.repository.ProjectRepository
 import ru.jenny.simplews.repository.dao.EventType
 import ru.jenny.simplews.rest.dto.DeviceDto
@@ -17,12 +15,6 @@ import javax.annotation.PostConstruct
 
 @RestController
 class ApiController {
-
-    @Autowired
-    lateinit var eventsRepository: EventRepository
-
-    @Autowired
-    lateinit var devicesRepository: DeviceRepository
 
     @Autowired
     lateinit var projectsRepository: ProjectRepository
@@ -106,7 +98,7 @@ class ApiController {
 
     @PostConstruct
     fun postConstruct() {
-        val string = "String"
+        println("ApiController initialized")
     }
 
 }
